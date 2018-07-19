@@ -23,6 +23,20 @@ def funs(request):
 				value=data.get("exp_value"),
 				)
 			exp.save()
+
+		elif data.get("student"):
+			student=Student(name=data.get("stu_name"),
+				address=data.get("stu_address"),
+				phone=data.get("stu_phone"),
+				email=data.get("stu_email"),
+				)
+			student.save()
+
+		elif data.get("course"):
+			course=Course(name=data.get("cour_name"),
+				)
+			course.save()
+
 		else:
 			hall=Studyhall(name=data.get("hall_name"),
 				area=data.get("hall_area"))
@@ -38,7 +52,7 @@ def funs(request):
 		"expenses":expenses,
 		"enquiries":enquiries,
 		"students":students,
-		"courses":courses		
+		"courses":courses,	
 		})
 	
 	# return render(request,"app1/index.html")
